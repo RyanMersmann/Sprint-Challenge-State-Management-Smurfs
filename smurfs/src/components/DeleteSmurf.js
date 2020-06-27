@@ -15,7 +15,7 @@ const DeleteSmurf = props => {
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
             <label>ID to Delete </label>
-            <input name='id' type='number' ref={register} placeholder="enter 0-10"/>
+            <input name='id' type='number' ref={register} placeholder="enter a valid id"/>
             <button>Delete By ID</button>
         </form>
         </div>
