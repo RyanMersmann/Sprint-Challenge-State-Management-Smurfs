@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 //FETCH
 export const FETCH_SMURFS_START = 'FETCH_SMURFS_START';
@@ -27,6 +28,7 @@ export const fetchSmurfs = () => {
             .catch(error => {
                 console.log('Error', error);
                 dispatch({ type: FETCH_SMURFS_ERROR, payload: error})
+                Swal.fire('Oops, Something went wrong')
             });
     };
 };
@@ -46,10 +48,16 @@ export const createSmurfs = data => {
         .then(response => {
             console.log('Create Response', response);
             dispatch({ type: CREATE_SMURFS_SUCCESS });
+            Swal.fire({
+                imageUrl: 'https://www.smurf.com/images/brainy-news.png',
+                imageHeight: 100,
+                imageAlt: 'a smurf',
+                text:'You added a new Villager!'})
         })
         .catch(error => {
             console.log(error);
             dispatch({ type: CREATE_SMURFS_ERROR, payload: error });
+            Swal.fire("Oops, something went wrong");
         });
             
     };
@@ -68,6 +76,7 @@ export const deleteSmurf = data => {
             .catch(error => {
                 console.log('Delete Error', error);
                 dispatch({ type: DELETE_SMURFS_ERROR, payload: error});
+                Swal.fire('Oops, Something went wrong')
             })
     }
 }

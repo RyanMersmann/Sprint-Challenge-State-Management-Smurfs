@@ -11,6 +11,7 @@
 .smurf_form {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   margin: 20px 45% 20px 45%;
 }
 
