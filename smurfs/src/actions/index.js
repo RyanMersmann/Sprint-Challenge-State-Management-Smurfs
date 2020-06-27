@@ -24,6 +24,11 @@ export const fetchSmurfs = () => {
             .then(response => {
                 console.log('API response', response.data);
                 dispatch({ type: FETCH_SMURFS_SUCCESS, payload: response.data})
+                Swal.fire({
+                    imageUrl: 'https://www.cartoonbucket.com/wp-content/uploads/2015/07/Papa-Smurf-And-His-Family.png',
+                    imageHeight: 100,
+                    imageAlt: 'a smurf',
+                    text:'Villagers Fetched!'})
             })
             .catch(error => {
                 console.log('Error', error);
